@@ -1,0 +1,81 @@
+import semillas.*
+
+test "La clase 'Menta' funciona correctamente" {
+
+	const men1 = new Menta(altura = 1, anioDeObtencion = 2010)
+	const men2 = new Menta(altura = 0.3, anioDeObtencion = 2008)
+	
+	assert.equals(6, men1.horasDeSolQueTolera())
+	assert.equals(6, men2.horasDeSolQueTolera())
+	assert.notThat(men1.esFuerte())
+	assert.notThat(men2.esFuerte())
+	assert.equals(3, men1.espacioQueOcupa())
+	assert.equals(0.9, men2.espacioQueOcupa())
+	assert.that(men1.daNuevasSemillas())
+	assert.notThat(men2.daNuevasSemillas())
+	
+}
+
+test "La clase 'Soja' funciona correctamente" {
+
+	const soj1 = new Soja(altura = 1.5, anioDeObtencion = 2010)
+	const soj2 = new Soja(altura = 0.4, anioDeObtencion = 2006)
+	
+	assert.equals(9, soj1.horasDeSolQueTolera())
+	assert.equals(6, soj2.horasDeSolQueTolera())
+	assert.notThat(soj1.esFuerte())
+	assert.notThat(soj2.esFuerte())
+	assert.equals(0.75, soj1.espacioQueOcupa())
+	assert.equals(0.2, soj2.espacioQueOcupa())
+	assert.that(soj1.daNuevasSemillas())
+	assert.notThat(soj2.daNuevasSemillas())
+	
+}
+
+test "La clase 'Quinoa' funciona correctamente" {
+
+	const qui1 = new Quinoa(altura = 1, anioDeObtencion = 2010, horasDeSolQueTolera = 12)
+	const qui2 = new Quinoa(altura = 0.3, anioDeObtencion = 2002, horasDeSolQueTolera = 6)
+	
+	assert.equals(12, qui1.horasDeSolQueTolera())
+	assert.equals(6, qui2.horasDeSolQueTolera())
+	assert.that(qui1.esFuerte())
+	assert.notThat(qui2.esFuerte())
+	assert.equals(0.5, qui1.espacioQueOcupa())
+	assert.equals(0.5, qui2.espacioQueOcupa())
+	assert.that(qui1.daNuevasSemillas())
+	assert.that(qui2.daNuevasSemillas())
+	
+}
+
+test "La clase 'SojaTransgenica' funciona correctamente" {
+
+	const soj1 = new SojaTransgenica(altura = 1.5, anioDeObtencion = 2010)
+	const soj2 = new SojaTransgenica(altura = 0.4, anioDeObtencion = 2006)
+	
+	assert.equals(9, soj1.horasDeSolQueTolera())
+	assert.equals(6, soj2.horasDeSolQueTolera())
+	assert.notThat(soj1.esFuerte())
+	assert.notThat(soj2.esFuerte())
+	assert.equals(0.75, soj1.espacioQueOcupa())
+	assert.equals(0.2, soj2.espacioQueOcupa())
+	assert.notThat(soj1.daNuevasSemillas())
+	assert.notThat(soj2.daNuevasSemillas())
+	
+}
+
+test "La clase 'Hierbabuena' funciona correctamente" {
+
+	const men1 = new Hierbabuena(altura = 1, anioDeObtencion = 2010)
+	const men2 = new Hierbabuena(altura = 0.3, anioDeObtencion = 2008)
+	
+	assert.equals(6, men1.horasDeSolQueTolera())
+	assert.equals(6, men2.horasDeSolQueTolera())
+	assert.notThat(men1.esFuerte())
+	assert.notThat(men2.esFuerte())
+	assert.equals(3 * 2, men1.espacioQueOcupa())
+	assert.equals(0.9 * 2, men2.espacioQueOcupa())
+	assert.that(men1.daNuevasSemillas())
+	assert.notThat(men2.daNuevasSemillas())
+	
+}

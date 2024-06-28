@@ -1,0 +1,69 @@
+import semillas.*
+import parcelas.*
+
+test "El clase 'Parcela' funciona correctamente" {
+
+	const men1 = new Menta(altura = 1, anioDeObtencion = 2010)
+	const men2 = new Menta(altura = 0.3, anioDeObtencion = 2008)
+	
+	const soj1 = new Soja(altura = 1.5, anioDeObtencion = 2010)
+	const soj2 = new Soja(altura = 0.4, anioDeObtencion = 2006)
+	
+	const qui1 = new Quinoa(altura = 1, anioDeObtencion = 2010, horasDeSolQueTolera = 12)
+	const qui2 = new Quinoa(altura = 0.3, anioDeObtencion = 2002, horasDeSolQueTolera = 6)
+	
+	const str1 = new SojaTransgenica(altura = 1.5, anioDeObtencion = 2010)
+	const str2 = new SojaTransgenica(altura = 0.4, anioDeObtencion = 2006)
+	
+	const hie1 = new Hierbabuena(altura = 1, anioDeObtencion = 2010)
+	const hie2 = new Hierbabuena(altura = 0.3, anioDeObtencion = 2008)
+	
+	const par1 = new ParcelaEcologica(ancho = 5, largo = 4, horasDeSolPorDia = 6)
+	const par2 = new ParcelaIndustrial(ancho = 5, largo = 6, horasDeSolPorDia = 6)
+	
+	assert.equals(20, par1.superficie())
+	assert.equals(30, par2.superficie())
+	
+	assert.equals(4, par1.cantidadMaximaDePlantas())
+	assert.equals(16, par2.cantidadMaximaDePlantas())
+	
+	assert.notThat(par1.tieneComplicaciones())
+	assert.notThat(par2.tieneComplicaciones())
+	
+	par1.plantar(men1)
+	par1.plantar(men2)
+	par1.plantar(soj1)
+	par1.plantar(soj2)
+	
+	par2.plantar(qui1)
+	par2.plantar(qui2)
+	par2.plantar(str1)
+	par2.plantar(str2)
+	par2.plantar(hie1)
+	par2.plantar(hie2)
+	
+	assert.notThat(par1.tieneComplicaciones())
+	assert.notThat(par2.tieneComplicaciones())
+	
+	assert.that(par1.alcanzoElLimite())
+	assert.notThat(par2.alcanzoElLimite())
+	
+	assert.that(par1.seAsociaBien(men1))
+	assert.that(par1.seAsociaBien(men2))
+	assert.notThat(par1.seAsociaBien(soj1))
+	assert.that(par1.seAsociaBien(soj2))
+	
+	assert.notThat(par2.seAsociaBien(qui1))
+	assert.notThat(par2.seAsociaBien(qui2))
+	assert.notThat(par2.seAsociaBien(str1))
+	assert.notThat(par2.seAsociaBien(str2))
+	assert.notThat(par2.seAsociaBien(hie1))
+	assert.notThat(par2.seAsociaBien(hie2))
+	
+	inta.agregar(par1)
+	inta.agregar(par2)
+	
+	assert.equals(5, inta.promedioDePlantas())
+	assert.equals(par2, inta.parcelaMasAutosustentable())
+
+}
